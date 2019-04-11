@@ -3,14 +3,20 @@ const logins = ["Mango", "robotGoogles", "Poly", "Aj4x1sBozz", "qwerty123"];
 
 const isLoginValid = function(login) {
   // код
-  if (login.length >= 4 && login.length <= 16) return true;
-  else return false;
+  if (login.length >= 4 && login.length <= 16) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 const isLoginUnique = function(allLogins, login) {
   // код
-  if (allLogins.includes(login)) return false;
-  else return true;
+  if (allLogins.includes(login)) {
+    return false;
+  } else {
+    return true;
+  }
 };
 
 const addLogin = function(allLogins, login) {
