@@ -19,13 +19,14 @@ const notepad = {
       if (this.notes[i].id === id) {
         return this.notes[i];
       } else {
-        return "undefined";
+        return undefined;
       }
     }
   },
 
   saveNote(note) {
     this.notes.push(note);
+    return note;
   },
 
   deleteNote(id) {
@@ -85,14 +86,16 @@ const notepad = {
 /*
  * Добавляю 4 заметки и смотрю что получилось
  */
-// notepad.saveNote({
-//   id: "id-1",
-//   title: "JavaScript essentials",
-//   body:
-//     "Get comfortable with all basic JavaScript concepts: variables, loops, arrays, branching, objects, functions, scopes, prototypes etc",
-//   priority: Priority.HIGH
-// });
-
+console.log(
+  notepad.saveNote({
+    id: "id-1",
+    title: "JavaScript essentials",
+    body:
+      "Get comfortable with all basic JavaScript concepts: variables, loops, arrays, branching, objects, functions, scopes, prototypes etc",
+    priority: Priority.HIGH
+  })
+);
+// console.log(saveNote());
 // notepad.saveNote({
 //   id: "id-2",
 //   title: "Refresh HTML and CSS",
