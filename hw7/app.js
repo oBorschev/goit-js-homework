@@ -88,64 +88,52 @@ const users = [
 ];
 
 // Task 1
-const getAllNames = users => {
-  return users.map(value => value.name);
-};
+const getAllNames = users => users.map(value => value.name);
 
 console.table(getAllNames(users));
 
-// Task 2
-const getUsersByEyeColor = (users, color) => {
-  return users.filter(value => value.eyeColor === color);
-};
+// // Task 2
+const getUsersByEyeColor = (users, color) =>
+  users.filter(value => value.eyeColor === color);
 
 console.table(getUsersByEyeColor(users, "blue"));
 
-// Task 3
-const getUsersByGender = (users, gender) => {
-  return users.filter(value => value.gender === gender);
-};
+// // Task 3
+const getUsersByGender = (users, gender) =>
+  users.filter(value => value.gender === gender);
 
 console.table(getUsersByGender(users, "male"));
 
-// Task 4
-const getInactiveUsers = users => {
-  return users.filter(value => value.isActive);
-};
+// // Task 4
+const getInactiveUsers = users => users.filter(value => value.isActive);
 
 console.table(getInactiveUsers(users));
 
 // Task 5
-const getUserByEmail = (users, email) => {
-  return users.filter(value => value.email === email);
-};
+const getUserByEmail = (users, email) =>
+  users.find(value => value.email === email);
 
 console.table(getUserByEmail(users, "shereeanthony@kog.com")); // {объект пользователя Sheree Anthony}
 console.table(getUserByEmail(users, "elmahead@omatom.com")); // {объект пользователя Elma Head}
 
-// Task 6
-const getUsersWithAge = (users, min, max) => {
-  return users.filter(value => value.age > min && value.age < max);
-};
+// // Task 6
+const getUsersWithAge = (users, min, max) =>
+  users.filter(value => value.age > min && value.age < max);
 
 console.table(getUsersWithAge(users, 20, 30)); // [объект Ross Vazquez, объект Elma Head, объект Carey Barr]
 
 console.table(getUsersWithAge(users, 30, 40));
-// [объект Moore Hensley, объект Sharlene Bush, объект Blackburn Dotson, объект Sheree Anthony]
+// // [объект Moore Hensley, объект Sharlene Bush, объект Blackburn Dotson, объект Sheree Anthony]
 
-// Task 7
-const getTotalBalance = users => {
-  // твой код
-  return users.reduce((acc, value) => acc + value.balance, 0);
-};
+// // Task 7
+const getTotalBalance = users =>
+  users.reduce((acc, value) => acc + value.balance, 0);
 
 console.log(getTotalBalance(users)); // 20916
 
-// Task 8
-const getUsersByFriend = (users, name) => {
-  // твой код
-  return users.filter(value => value.friends.includes(name));
-};
+// // Task 8
+const getUsersByFriend = (users, name) =>
+  users.filter(value => value.friends.includes(name));
 
 console.table(getUsersByFriend(users, "Briana Decker")); // [ 'Sharlene Bush', 'Sheree Anthony' ]
 console.table(getUsersByFriend(users, "Goldie Gentry")); // [ 'Elma Head', 'Sheree Anthony' ]
@@ -153,27 +141,25 @@ console.table(getUsersByFriend(users, "Goldie Gentry")); // [ 'Elma Head', 'Sher
 // Additional tasks
 
 const getUniqueSkills = users => {
-  // твой код
+  //   // твой код
   const allSkills = users.reduce((acc, value) => {
     acc.push(...value.skills);
     return acc;
   }, []);
-  console.log(allSkills);
-  const result = allSkills.reduce((prev, next) => {
-    if (prev !== next) {
-      return prev;
-    }
+  const filterSame = allSkills.reduce((acc, value) => {
+    if (!acc.hasOwnProperty(value)) acc.push(value);
+    return acc;
   }, []);
-  return result.sort();
+  return filterSame;
 };
 
 console.log(getUniqueSkills(users));
 // [ 'adipisicing', 'amet', 'anim', 'commodo', 'culpa', 'elit', 'ex', 'ipsum', 'irure', 'laborum', 'lorem', 'mollit', 'non', 'nostrud', 'nulla', 'proident', 'tempor', 'velit', 'veniam' ]
 
-const getNamesSortedByFriendsCount = users => {
-  // твой код
-  return users.map(value => value.name).sort((a, b) => b.friends - a.friends);
-};
+const getNamesSortedByFriendsCount = users =>
+  users
+    .sort((prev, next) => prev.friends.length - next.friends.length)
+    .map(value => value.name);
 
 console.log(getNamesSortedByFriendsCount(users));
 // [ 'Moore Hensley', 'Sharlene Bush', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony', 'Ross Vazquez' ]
