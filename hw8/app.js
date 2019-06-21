@@ -8,10 +8,6 @@ questionSection.appendChild(questionList);
 
 const buttonSubmit = document.querySelector(".question-form");
 buttonSubmit.addEventListener("submit", checkAnswers);
-const numOfQuestions = document.querySelectorAll("ol").length;
-// console.log(transactionQuestions.questions.length);
-const input = document.querySelector("input");
-// console.dir(input);
 
 function createQuestiosForm(obj) {
   const form = document.createElement("form");
@@ -165,10 +161,6 @@ function checkAnswers(event) {
     });
   }
 
-  function openModal() {
-    document.body.classList.add("show-modal");
-    window.addEventListener("keydown", handleKeyPress);
-  }
   function closeModal() {
     document.body.classList.remove("show-modal");
     window.removeEventListener("keydown", handleKeyPress);
@@ -184,9 +176,6 @@ function checkAnswers(event) {
     closeModal();
   }
   function callModal(template) {
-    const openModalBtn = document.querySelector(
-      'button[data-action="check-answers"]'
-    );
     const closeModalBtn = document.querySelector(
       'button[data-action="close-modal"]'
     );
@@ -194,7 +183,8 @@ function checkAnswers(event) {
     const modalText = document.querySelector(".modal h2");
 
     modalText.textContent = template;
-    openModalBtn.addEventListener("click", openModal);
+    document.body.classList.add("show-modal");
+    window.addEventListener("keydown", handleKeyPress);
     closeModalBtn.addEventListener("click", closeModal);
     backdrop.addEventListener("click", handleBackdropClick);
   }
