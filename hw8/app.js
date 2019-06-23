@@ -32,7 +32,7 @@ function createQuestiosForm(obj) {
 
     for (const item in choices) {
       const questionItem = document.createElement("li");
-      const questionLable = document.createElement("lable");
+      const questionLable = document.createElement("label");
       const questionInput = document.createElement("input");
       questionInput.type = "radio";
       questionInput.name = `question-${numberOfQuestion}`;
