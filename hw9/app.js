@@ -4,6 +4,7 @@ import transactionGalleryItems from "./gallery-items.js";
 
 const gallery = document.querySelector(".gallery");
 const lightbox = document.querySelector(".lightbox");
+const lightboxImage = document.querySelector(".lightbox___image");
 createGallery(transactionGalleryItems);
 gallery.addEventListener("click", openLigthbox);
 
@@ -27,7 +28,7 @@ function createGallery(arrayOfGalleryItems) {
     galleryImage.classList.add("gallery__image");
     galleryImage.src = `${value.preview}`;
     galleryImage.dataset.source = `${value.original}`;
-    galleryImage.atl = `${value.description}`;
+    galleryImage.alt = `${value.description}`;
 
     const galleryIcon = document.createElement("span");
     galleryIcon.classList.add("gallery__icon");
@@ -46,15 +47,14 @@ function createGallery(arrayOfGalleryItems) {
 function openLigthbox(e) {
   e.preventDefault();
   const target = e.target;
-  const lightboxImage = document.querySelector(".lightbox___image");
   lightboxImage.src = `${target.dataset.source}`;
-  lightboxImage.atl = target.atl;
-
+  lightboxImage.alt = target.alt;
   lightbox.classList.add("is-open");
 }
 
 function closeLigthbox() {
   lightbox.classList.remove("is-open");
+  lightboxImage.src = "";
 }
 
 function clickOutLightbox(e) {
