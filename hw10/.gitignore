@@ -36,17 +36,17 @@ bower_components
 build/Release
 
 # Dependency directories
-/hw10/node_modules/
-/hw10/jspm_packages/
-/hw1
-/hw2
-/hw3
-/hw4
-/hw5
-/hm6
-/hw7
-/hw8
-/hw9
+node_modules/
+jspm_packages/
+../hw1
+../hw2
+../hw3
+../hw4
+../hw5
+../hm6
+../hw7
+../hw8
+../hw9
 
 # Typescript v1 declaration files
 typings/
