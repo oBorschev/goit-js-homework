@@ -1,7 +1,7 @@
 import './styles.css';
 import menu from './menu.json';
 import nemuTemplate from './templates/index.hbs';
-import './change-theme';
+import './change-theme.js';
 
 const insertMenu = document.querySelector('.menu');
 
